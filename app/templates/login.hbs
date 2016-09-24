@@ -1,18 +1,26 @@
-<div class="container">
-  <form class="form-signin">
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    {{input type="email" id="inputEmail" class="form-control" value=emailAddress placeholder="Email address" required="required"}}
-    <label for="inputPassword" class="sr-only">Password</label>
-    {{input type="password" id="inputPassword" class="form-control" value=password placeholder="Password" required="required"}}
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" disabled={{isDisabled}} type="submit">Sign in</button>
-    <br />
-    Not a member? {{#link-to 'register'}}Register{{/link-to}}.
-  </form>
-</div>
+<form class="form-login">
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <div class="form-group {{if isValid 'has-success'}}">
+    {{input class="form-control" type="email" id="inputEmail" value=emailAddress placeholder="Email address" required="required"}}
+  </div>
+  <div class="form-group {{if isValid 'has-success'}}">
+    {{input class="form-control" type="password" id="inputPassword" value=password placeholder="Password" required="required"}}
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" disabled={{isDisabled}} type="submit">Sign in</button>
+  <br />
+  Not a member? {{#link-to 'register'}}Register{{/link-to}}.
+</form>
+
+{{!-- <div class="form-group has-success">
+  <label >Input with success</label>
+  <input type="text" class="form-control form-control-success" id="inputSuccess1">
+  <div class="form-control-feedback">Success! You've done it.</div>
+  <small class="form-text text-muted">Example help text that remains unchanged.</small>
+</div> --}}
+
 {{outlet}}
