@@ -1,17 +1,25 @@
 <form class="form-login">
   <h2 class="form-signin-heading">Please sign in</h2>
-  <div class="form-group {{if isValid 'has-success'}}">
+  <div class="form-group {{if isValidEmail 'has-success'}}">
     {{input class="form-control" type="email" id="inputEmail" value=emailAddress placeholder="Email address" required="required"}}
   </div>
-  <div class="form-group {{if isValid 'has-success'}}">
+  <div class="form-group {{if isValidPassword 'has-success'}}">
     {{input class="form-control" type="password" id="inputPassword" value=password placeholder="Password" required="required"}}
   </div>
+  {{#unless isValid}}
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      Password should be at least 5 characters!
+    </div>
+  {{/unless}}
   <div class="checkbox">
     <label>
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" disabled={{isDisabled}} type="submit">Sign in</button>
+  <button class="btn btn-lg btn-primary btn-block" disabled="{{unless isValid 'disabled'}}" type="submit">Sign in</button>
   <br />
   Not a member? {{#link-to 'register'}}Register{{/link-to}}.
 </form>
