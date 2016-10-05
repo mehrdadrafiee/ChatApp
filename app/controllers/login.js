@@ -8,7 +8,10 @@ export default Ember.Controller.extend({
   validUsername: computed.gte('username.length', 5),
   actions: {
     saveUsername() {
-      alert(`Welcome ${this.get('username')}!`);
+      const username = this.get('username');
+      const newUser = this.store.createRecord('users', { username: username });
+      newUser.save();
+      
       this.set('greetMessage', `Welcome ${this.get('username')}! Hang on while we are preparing the chatroom.`);
       this.set('username', '');
     }
