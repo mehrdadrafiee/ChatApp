@@ -10,6 +10,9 @@ Router.map(function() {
   this.route('register');
   this.route('login');
   this.route('chatroom');
+  this.route('friends', function() {
+    this.route('new');
+  });
 });
 
 export default Router;
