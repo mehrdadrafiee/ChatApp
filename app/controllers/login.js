@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
       const username = this.get('username');
       const newUser = this.store.createRecord('users', { username: username });
       newUser.save();
-      
+
       this.set('greetMessage', `Welcome ${this.get('username')}! Hang on while we are preparing the chatroom.`);
       this.set('username', '');
     }
