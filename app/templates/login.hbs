@@ -20,6 +20,7 @@
       {{greetMessage}}
     </div>
   {{/if}}
+  {{id}}
   <button class="btn btn-lg btn-primary btn-block" disabled="{{unless validUsername 'disabled'}}" {{action 'saveUsername'}} type="submit">Sign in</button>
   <br />
 </form>
