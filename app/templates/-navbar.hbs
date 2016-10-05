@@ -9,10 +9,10 @@
         <a class="nav-link" href="#">Pricing</a>
       </li>
       <li class="nav-item">
-        {{#link-to 'chatroom' class="nav-link" tagName="li"}}<a href>Chatroom</a>{{/link-to}}
+        {{#link-to 'chatroom' tagName="li"}}<a href class="nav-link">Chatroom</a>{{/link-to}}
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        {{#link-to 'friends' tagName="li"}}<a href class="nav-link">Friends</a>{{/link-to}}
       </li>
       <li class="nav-item dropdown pull-xs-right">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{username}}</a>
