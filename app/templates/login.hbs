@@ -1,34 +1,27 @@
 <form class="form-login">
-  <h2 class="form-signin-heading">Please sign in</h2>
-  <div class="form-group {{if isValidEmail 'has-success'}}">
-    {{input class="form-control" type="email" id="inputEmail" value=emailAddress placeholder="Email address" required="required"}}
+  <h2 class="form-signin-heading">Pick up a cool username!</h2>
+  <br/>
+  <div class="form-group {{if validUsername 'has-success'}}">
+    {{input class="form-control" type="email" id="usernameInput" value=username required="required"}}
   </div>
-  <div class="form-group {{if isValidPassword 'has-success'}}">
-    {{input class="form-control" type="password" id="inputPassword" value=password placeholder="Password" required="required"}}
-  </div>
-  {{#unless isValid}}
+  {{#unless validUsername}}
     <div class="alert alert-warning alert-dismissible fade in" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      Password should be at least 5 characters!
+      Username should be at least 5 characters!
     </div>
   {{/unless}}
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" disabled="{{unless isValid 'disabled'}}" type="submit">Sign in</button>
+  {{#if greetMessage}}
+    <div class="alert alert-success alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{greetMessage}}
+    </div>
+  {{/if}}
+  <button class="btn btn-lg btn-primary btn-block" disabled="{{unless validUsername 'disabled'}}" {{action 'saveUsername'}} type="submit">Sign in</button>
   <br />
-  Not a member? {{#link-to 'register'}}Register{{/link-to}}.
 </form>
-
-{{!-- <div class="form-group has-success">
-  <label >Input with success</label>
-  <input type="text" class="form-control form-control-success" id="inputSuccess1">
-  <div class="form-control-feedback">Success! You've done it.</div>
-  <small class="form-text text-muted">Example help text that remains unchanged.</small>
-</div> --}}
 
 {{outlet}}
