@@ -1,18 +1,25 @@
-<h1>Invitations</h1>
-
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-  {{#each model as |users|}}
-    <tr>
-      <th>{{users.id}}</th>
-      <td>{{users.username}}</td>
-    </tr>
-  {{/each}}
-  </tbody>
-</table>
+<br/>
+<h1>Users</h1>
+<div class="col-lg-8 col-md-8">
+  <p>
+    Click on a user to start a private message.
+  </p>
+</div>
+<div class="col-lg-4 col-md-4">
+  <table class="table table-hover table-striped">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Users</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |users|}}
+      <tr>
+        <td>{{users.username}}</td>
+        <th>{{users.id}}</th>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
